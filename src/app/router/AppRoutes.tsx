@@ -8,6 +8,7 @@ import { ProjectPage } from "../../pages/executor/ProjectsPage";
 import { ChatPage } from "../../pages/executor/ChatPage";
 import { StandardsPage } from "../../pages/executor/StandardsPage";
 import { LoginPage } from "../../pages/LoginPage";
+import { AdminPage } from "../../pages/AdminPage";
 
 export const AppRoutes = () => (
   <Routes>
@@ -50,5 +51,14 @@ export const AppRoutes = () => (
         element={<StandardsPage />}
       />
     </Route>
+
+    <Route
+      path="/admin"
+      element={
+        <ProtectedRoute allowedRoles={["admin"]}>
+          <AdminPage />
+        </ProtectedRoute>
+      }
+    ></Route>
   </Routes>
 );
