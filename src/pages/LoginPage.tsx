@@ -1,10 +1,7 @@
-import { useForm } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers/yup";
-import * as yup from "yup";
+
 import { useAuthStore } from "../app/store/store";
-import { useNavigate, useNavigation } from "react-router-dom";
-import styled from "styled-components";
-import { use } from "react";
+import { useNavigate } from "react-router-dom";
+
 
 export const LoginPage = () => {
   const setRole = useAuthStore((state) => state.setRole);
