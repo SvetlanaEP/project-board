@@ -1,0 +1,1 @@
+export const PerformerPage = () => <h2>Панель Исполнителя</h2>
