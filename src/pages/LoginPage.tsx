@@ -6,7 +6,7 @@ import { useNavigate, useNavigation } from "react-router-dom";
 import styled from "styled-components";
 import { use } from "react";
 
-export const Login = () => {
+export const LoginPage = () => {
   const setRole = useAuthStore((state) => state.setRole);
   const navigate = useNavigate();
 
