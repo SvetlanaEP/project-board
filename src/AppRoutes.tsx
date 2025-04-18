@@ -4,6 +4,7 @@ import { ProtectedRoute } from "./components/ProtectedRoute";
 import { ExecutorDashboard } from "./pages/executor/ExecutorDashboard";
 import { CustomerPage } from "./pages/CustomerPage";
 import { AdminPage } from "./pages/AdminPage";
+import { ExecutorLayout } from "./pages/executor/ExecutorLayout";
 
 export const AppRoutes = () => {
   return (
@@ -26,7 +27,7 @@ export const AppRoutes = () => {
         path="/executor"
         element={
           <ProtectedRoute allowedRoles={["executor"]}>
-            <ExecutorDashboard />
+            <ExecutorLayout />
           </ProtectedRoute>
         }
       ></Route>

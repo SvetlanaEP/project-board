@@ -3,6 +3,10 @@ import { LoginPage } from "../../pages/LoginPage";
 import { ProtectedRoute } from "../../components/ProtectedRoute";
 import { CustomerPage } from "../../pages/CustomerPage";
 import { ExecutorDashboard } from "../../pages/executor/ExecutorDashboard";
+import { ExecutorLayout } from "../../pages/executor/ExecutorLayout";
+import { ProjectPage } from "../../pages/executor/ProjectsPage";
+import { ChatPage } from "../../pages/executor/ChatPage";
+import { StandardsPage } from "../../pages/executor/StandardsPage";
 
 export const AppRoutes = () => (
   <Routes>
@@ -24,9 +28,14 @@ export const AppRoutes = () => (
       path="/executor"
       element={
         <ProtectedRoute allowedRoles={['executor']}>
-          <ExecutorDashboard />
+          <ExecutorLayout />
         </ProtectedRoute>
       }
-    ></Route>
+    >
+      <Route index element={<ExecutorDashboard />}/>
+      <Route path="projects" element={<ProjectPage />} />
+      <Route path="chat" element={<ChatPage />} />
+      <Route path="standarts" element={<StandardsPage />} />
+    </Route>
   </Routes>
 );
