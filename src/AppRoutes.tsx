@@ -23,9 +23,9 @@ export const AppRoutes = () => {
       ></Route>
 
       <Route
-        path="/performer"
+        path="/executor"
         element={
-          <ProtectedRoute allowedRoles={["performer"]}>
+          <ProtectedRoute allowedRoles={["executor"]}>
             <ExecutorDashboard />
           </ProtectedRoute>
         }

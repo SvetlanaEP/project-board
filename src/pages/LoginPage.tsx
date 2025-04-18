@@ -10,10 +10,10 @@ export const LoginPage = () => {
   const setRole = useAuthStore((state) => state.setRole);
   const navigate = useNavigate();
 
-  const handleLogin = (role: "customer" | "performer" | "admin") => {
+  const handleLogin = (role: "customer" | "executor" | "admin") => {
     setRole(role);
     if (role === "customer") navigate("/");
-    else if (role === "performer") navigate("/performer");
+    else if (role === "executor") navigate("/executor");
     else if (role === "admin") navigate("/admin");
   };
   return (
@@ -23,7 +23,7 @@ export const LoginPage = () => {
         {" "}
         Войти как Заказчик{" "}
       </button>
-      <button onClick={() => handleLogin("performer")}>
+      <button onClick={() => handleLogin("executor")}>
         {" "}
         Войти как Исполнитель{" "}
       </button>

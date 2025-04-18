@@ -1,6 +1,6 @@
 import { create } from "zustand";
 
-type Role = 'customer' | 'performer' | 'admin' | null
+type Role = 'customer' | 'executor' | 'admin' | null
 
 interface AuthState {
   role: Role
