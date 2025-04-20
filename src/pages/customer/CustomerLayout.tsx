@@ -3,9 +3,9 @@ import { useAuthStore } from '../../app/store/store';
 import { CommonLayout } from '../../components/CommonLayout';
 
 const clientMenu = [
-  { path: '/client', label: '🏠 Главная' },
-  { path: '/client/orders', label: '📋 Заказы' },
-  { path: '/client/support', label: '🛠 Поддержка' },
+  { path: '/customer', label: '🏠 Главная' },
+  { path: '/customer/orders', label: '📋 Заказы' },
+  { path: '/customer/support', label: '🛠 Поддержка' },
 ];
 export const CustomerLayout = () => {
   const { logout } = useAuthStore();

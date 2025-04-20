@@ -10,6 +10,8 @@ import { LoginPage } from "../../pages/LoginPage";
 import { AdminPage } from "../../pages/AdminPage";
 import { CustomerLayout } from "../../pages/customer/CustomerLayout";
 import { CustomerDashboard } from "../../pages/customer/CustomerDashboard";
+import { OrdersPage } from "../../pages/customer/OrdersPage";
+import { SupportPage } from "../../pages/customer/SupportPage";
 
 export const AppRoutes = () => (
   <Routes>
@@ -29,6 +31,15 @@ export const AppRoutes = () => (
       <Route
         index
         element={<CustomerDashboard />}
+      />
+       <Route
+        path="orders"
+        element={<OrdersPage />}
+      />
+
+      <Route
+        path="support"
+        element={<SupportPage />}
       />
       
     </Route>
