@@ -37,7 +37,7 @@ export const ExecutorLayout = () => {
 
   const handleLogout = () => {
     logout();
-    navigate('/');
+    navigate('/login');
   };
 
   return (
