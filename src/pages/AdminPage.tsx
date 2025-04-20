@@ -1,1 +1,0 @@
-export const AdminPage = () => <h2>Админ-панель</h2>

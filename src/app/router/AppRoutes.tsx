@@ -7,11 +7,17 @@ import { ProjectPage } from "../../pages/executor/ProjectsPage";
 import { ChatPage } from "../../pages/executor/ChatPage";
 import { StandardsPage } from "../../pages/executor/StandardsPage";
 import { LoginPage } from "../../pages/LoginPage";
-import { AdminPage } from "../../pages/AdminPage";
 import { CustomerLayout } from "../../pages/customer/CustomerLayout";
 import { CustomerDashboard } from "../../pages/customer/CustomerDashboard";
 import { OrdersPage } from "../../pages/customer/OrdersPage";
 import { SupportPage } from "../../pages/customer/SupportPage";
+import { AdminLayout } from "../../pages/admin/AdminLayout";
+import { AdminDashboard } from "../../pages/admin/AdminDashboard";
+import { ProjectsAdminPage } from "../../pages/admin/ProjectsAdminPage";
+import { UsersPage } from "../../pages/admin/UsersPage";
+import { ReportsPage } from "../../pages/admin/ReportsPage";
+import { NotificationsPage } from "../../pages/admin/NotificationsPage";
+import { ActivityPage } from "../../pages/admin/ActivityPage";
 
 export const AppRoutes = () => (
   <Routes>
@@ -74,9 +80,36 @@ export const AppRoutes = () => (
       path="/admin"
       element={
         <ProtectedRoute allowedRoles={["admin"]}>
-          <AdminPage />
+          <AdminLayout />
         </ProtectedRoute>
       }
-    ></Route>
+    >
+      <Route 
+        index
+        element={<AdminDashboard />}
+      />
+      <Route 
+        path="projects"
+        element={<ProjectsAdminPage />}
+      />
+
+      <Route 
+        path="users"
+        element={<UsersPage />}
+      />
+      <Route 
+        path="reports"
+        element={<ReportsPage />}
+      />
+      <Route 
+      path="notifications"
+      element={<NotificationsPage />}
+      />
+      <Route 
+        path="activity"
+        element={<ActivityPage />}
+      />
+
+    </Route>
   </Routes>
 );
