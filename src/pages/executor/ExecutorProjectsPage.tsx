@@ -1,5 +1,6 @@
-import { useProjectsStore } from "../../app/store/projectStore";
 import styled from 'styled-components';
+import { useAuthStore } from "../../app/store/store";
+import { mockProjects } from "../../mock/projects";
 
 const ProjectCard = styled.div<{ status: string }>`
   border: 1px solid #ccc;
@@ -15,11 +16,12 @@ const ProjectCard = styled.div<{ status: string }>`
 `;
 
 export const ExecutorProjectPage = () => {
-  const { projects } = useProjectsStore()
+  const username = useAuthStore((state) => state.username)
+  const visibleProjects = mockProjects.filter((project) => project.access.includes(username || ''))
   return (
     <div>
       <h1>📁 Проекты исполнителя</h1>
-      {projects.map((project) => (
+      {visibleProjects.map((project) => (
         <ProjectCard key={project.id} status={project.status}>
           <h3>{project.title}</h3>
           <p>{project.description}</p>
