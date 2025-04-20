@@ -1,30 +1,50 @@
-
+import { useState } from "react";
 import { useAuthStore } from "../app/store/store";
 import { useNavigate } from "react-router-dom";
+import styled from "styled-components";
+import { mockUsers } from "../mock/users";
 
+const Wrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+`;
 
 export const LoginPage = () => {
-  const setRole = useAuthStore((state) => state.setRole);
-  const navigate = useNavigate();
+  const [username, setUsername] = useState("");
+  const [error, setError] = useState(false)
+  const login = useAuthStore((state) => state.login)
+  const navigate = useNavigate()
 
-  const handleLogin = (role: "customer" | "executor" | "admin", username: string) => {
-    setRole(role, username);
-    if (role === "customer") navigate("/customer");
-    else if (role === "executor") navigate("/executor");
-    else if (role === "admin") navigate("/admin");
-  };
+  const handleLogin = () => {
+    const user = mockUsers.find((u) => u.username === username)
+
+    if (!user) {
+      setError(true)
+      return
+    }
+
+    login(user)
+    navigate(`/${user.role}`)
+  }
+
   return (
-    <div>
-      <h2>Выберите роль</h2>
-      <button onClick={() => handleLogin("customer", 'client1')}>
-        {" "}
-        Войти как Заказчик{" "}
-      </button>
-      <button onClick={() => handleLogin("executor", 'executor1')}>
-        {" "}
-        Войти как Исполнитель{" "}
-      </button>
-      <button onClick={() => handleLogin("admin", 'admin')}> Войти как Админ </button>
-    </div>
+    <Wrapper>
+      <h2>Вход</h2>
+      <input
+        type="text"
+        placeholder="Введите username"
+        value={username}
+        onChange={(e)=> setUsername(e.target.value)}
+      />
+      <button onClick={handleLogin}>Войти</button>
+
+      {error && (
+        <p style={{ color: 'red' }}>Пользователь не найден</p>
+      )}
+    </Wrapper>
   );
 };

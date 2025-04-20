@@ -15,7 +15,7 @@ export const mockProjects: Project[] = [
       title: 'Редизайн лендинга',
       description: 'Нужно внести правки по новому макету.',
       status: 'В работе',
-      access: ['client1', 'executor2', 'admin']
+      access: ['c', 'e', 'a']
       
     },
     {
@@ -23,21 +23,21 @@ export const mockProjects: Project[] = [
       title: 'Настройка формы',
       description: 'Форма не отправляется, нужно починить.',
       status: 'Срочно',
-      access: ['admin', 'executor1'],
+      access: ['a', 'e'],
     },
     {
       id: '3',
       title: 'Презентация для клиента',
       description: 'Собрать инфу и сверстать в PDF.',
       status: 'Ожидание',
-      access: ['admin', 'client1'],
+      access: ['a', 'c'],
     },
     {
       id: '4',
       title: 'Обновление документации',
       description: 'Добавить новые стандарты',
       status: 'На проверке',
-      access: ['client', 'executor1', 'admin'],
+      access: ['c', 'e', 'a'],
     },
 
 ];

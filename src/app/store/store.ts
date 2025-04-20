@@ -1,17 +1,15 @@
 import { create } from "zustand";
+import { User } from "../../mock/users";
 
-type Role = 'customer' | 'executor' | 'admin' | null
 
-interface AuthState {
-  role: Role
-  username: string | null
-  setRole: (role: AuthState['role'], username: string) => void
+interface AuthStore {
+  user: User | null
+  login: (user: User) => void
   logout: () => void
 }
 
-export const useAuthStore = create<AuthState>((set) => ({
-  role: null,
-  username: null,
-  setRole: (role, username) => set({role, username}),
-  logout: () => set({role: null, username: null})
+export const useAuthStore = create<AuthStore>((set) => ({
+  user: null,
+  login: (user) => set({ user }),
+  logout: () => set({user: null})
 }))

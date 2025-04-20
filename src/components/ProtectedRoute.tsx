@@ -8,7 +8,7 @@ interface Props {
 }
 
 export const ProtectedRoute = ({ children, allowedRoles }: Props) => {
-  const role = useAuthStore((state) => state.role);
+  const role = useAuthStore((state) => state.user?.role);
 
   if (!role) {
     return (

@@ -17,7 +17,7 @@ const ProjectCard = styled.div<{ status: string }>`
 `;
 
 export const OrdersPage = () => {
-    const username = useAuthStore((state) => state.username)
+    const username = useAuthStore((state) => state.user?.username)
     const visibleProjects = mockProjects.filter((project) => project.access.includes(username || ''))
   return (
     <div>
