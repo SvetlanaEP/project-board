@@ -1,60 +1,24 @@
-// src/pages/executor/ExecutorLayout.tsx
-import { Outlet, Link, useNavigate } from 'react-router-dom';
-import styled from 'styled-components';
+import { useNavigate } from 'react-router-dom';
 import { useAuthStore } from '../../app/store/store';
+import { CommonLayout } from '../../components/CommonLayout';
 
+const executorMenu = [
+  { path: '/executor', label: '🏠 Главная' },
+  { path: '/executor/projects', label: '📁 Проекты' },
+  { path: '/executor/chat', label: '💬 Чат' },
+  { path: '/executor/standards', label: '📄 Стандарты' },
+];
 
-const LayoutContainer = styled.div`
-  display: flex;
-  min-height: 100vh;
-`;
-
-const Sidebar = styled.nav`
-  width: 220px;
-  background-color: #f4f4f4;
-  padding: 20px;
-`;
-
-const Content = styled.main`
-  flex: 1;
-  padding: 20px;
-`;
-
-const NavItem = styled(Link)`
-  display: block;
-  margin-bottom: 10px;
-  color: #333;
-  text-decoration: none;
-
-  &:hover {
-    color: #007bff;
-  }
-`;
 
 export const ExecutorLayout = () => {
   const { logout } = useAuthStore();
   const navigate = useNavigate();
 
-  const handleLogout = () => {
-    logout();
-    navigate('/login');
-  };
-
+const handleLogout = () => {
+  logout();
+  navigate('/login');
+};
   return (
-    <LayoutContainer>
-      <Sidebar>
-        <h3>Меню</h3>
-        <NavItem to="/executor">🏠 Главная</NavItem>
-        <NavItem to="/executor/projects">📁 Проекты</NavItem>
-        <NavItem to="/executor/chat">💬 Чат</NavItem>
-        <NavItem to="/executor/standards">📄 Стандарты</NavItem>
-        <hr />
-        <button onClick={handleLogout}>🚪 Выйти</button>
-      </Sidebar>
-
-      <Content>
-        <Outlet />
-      </Content>
-    </LayoutContainer>
+    <CommonLayout title='Меню исполнителя' menuItems={executorMenu} onLogout={handleLogout} />
   );
 };
