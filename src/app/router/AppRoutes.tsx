@@ -1,7 +1,6 @@
 import { Routes, Route } from "react-router-dom";
 
 import { ProtectedRoute } from "../../components/ProtectedRoute";
-import { CustomerPage } from "../../pages/CustomerPage";
 import { ExecutorDashboard } from "../../pages/executor/ExecutorDashboard";
 import { ExecutorLayout } from "../../pages/executor/ExecutorLayout";
 import { ProjectPage } from "../../pages/executor/ProjectsPage";
@@ -9,6 +8,8 @@ import { ChatPage } from "../../pages/executor/ChatPage";
 import { StandardsPage } from "../../pages/executor/StandardsPage";
 import { LoginPage } from "../../pages/LoginPage";
 import { AdminPage } from "../../pages/AdminPage";
+import { CustomerLayout } from "../../pages/customer/CustomerLayout";
+import { CustomerDashboard } from "../../pages/customer/CustomerDashboard";
 
 export const AppRoutes = () => (
   <Routes>
@@ -21,10 +22,16 @@ export const AppRoutes = () => (
       path="/customer"
       element={
         <ProtectedRoute allowedRoles={["customer"]}>
-          <CustomerPage />
+          <CustomerLayout />
         </ProtectedRoute>
       }
-    ></Route>
+    >
+      <Route
+        index
+        element={<CustomerDashboard />}
+      />
+      
+    </Route>
 
     <Route
       path="/executor"
