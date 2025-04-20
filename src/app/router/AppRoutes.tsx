@@ -3,7 +3,7 @@ import { Routes, Route } from "react-router-dom";
 import { ProtectedRoute } from "../../components/ProtectedRoute";
 import { ExecutorDashboard } from "../../pages/executor/ExecutorDashboard";
 import { ExecutorLayout } from "../../pages/executor/ExecutorLayout";
-import { ProjectPage } from "../../pages/executor/ProjectsPage";
+import { ExecutorProjectPage } from "../../pages/executor/ExecutorProjectsPage";
 import { ChatPage } from "../../pages/executor/ChatPage";
 import { StandardsPage } from "../../pages/executor/StandardsPage";
 import { LoginPage } from "../../pages/LoginPage";
@@ -64,7 +64,7 @@ export const AppRoutes = () => (
       />
       <Route
         path="projects"
-        element={<ProjectPage />}
+        element={<ExecutorProjectPage />}
       />
       <Route
         path="chat"

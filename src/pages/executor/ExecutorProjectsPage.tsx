@@ -14,11 +14,11 @@ const ProjectCard = styled.div<{ status: string }>`
   background-color: #fff;
 `;
 
-export const ProjectsAdminPage = () => {
+export const ExecutorProjectPage = () => {
   const { projects } = useProjectsStore()
   return (
     <div>
-      <h1>📁 Все проекты</h1>
+      <h1>📁 Проекты исполнителя</h1>
       {projects.map((project) => (
         <ProjectCard key={project.id} status={project.status}>
           <h3>{project.title}</h3>
