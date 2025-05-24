@@ -1,0 +1,30 @@
+// components/ProjectList.module.scss
+
+.wrapper {
+  padding: 20px;
+}
+
+.card {
+  border: 1px solid #ccc;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 8px;
+  background-color: #fff;
+  border-left: 8px solid gray;
+
+  &.urgent {
+    border-left-color: red;
+  }
+
+  &.inProgress {
+    border-left-color: orange;
+  }
+
+  &.review {
+    border-left-color: blue;
+  }
+
+  &.waiting {
+    border-left-color: gray;
+  }
+}
