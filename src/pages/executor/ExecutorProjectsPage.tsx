@@ -16,8 +16,11 @@ const ProjectCard = styled.div<{ status: string }>`
 `;
 
 export const ExecutorProjectPage = () => {
-  const username = useAuthStore((state) => state.user?.username)
-  const visibleProjects = mockProjects.filter((project) => project.access.includes(username || ''))
+  const userId = useAuthStore((state) => state.user?.id);
+
+  const visibleProjects = mockProjects.filter((project) =>
+    project.access.includes(userId || "")
+  );
   return (
     <div>
       <h1>📁 Проекты исполнителя</h1>

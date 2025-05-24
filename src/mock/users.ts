@@ -22,13 +22,13 @@ export const mockUsers: User[] = [
   },
   {
     id: 'u3',
-    username: 'ee',
+    username: 'cc',
     name: 'Мария Клиентова',
     role: 'customer',
   },
   {
     id: 'u4',
-    username: 'executor1',
+    username: 'ee',
     name: 'Игорь Исполнитель',
     role: 'executor',
   },
