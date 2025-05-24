@@ -10,19 +10,19 @@ export interface User {
 export const mockUsers: User[] = [
   {
     id: 'u1',
-    username: 'admin',
+    username: 'aa',
     name: 'Анна Админова',
     role: 'admin',
   },
   {
     id: 'u2',
-    username: 'client1',
+    username: 'cc',
     name: 'Виктор Заказов',
     role: 'customer',
   },
   {
     id: 'u3',
-    username: 'client2',
+    username: 'ee',
     name: 'Мария Клиентова',
     role: 'customer',
   },
@@ -45,21 +45,22 @@ export const mockUsers: User[] = [
     role: 'executor',
   },
   {
-    id: 'u4',
+    id: 'u7',
     username: 'a',
     name: 'Админ',
     role: 'admin',
   },
   {
-    id: 'u5',
+    id: 'u8',
     username: 'e',
     name: 'Исполнитель',
     role: 'executor',
   },
   {
-    id: 'u6',
+    id: 'u9',
     username: 'c',
     name: 'Заказчик',
     role: 'customer',
   },
 ]
+
