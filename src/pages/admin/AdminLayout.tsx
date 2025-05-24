@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
-import { useAuthStore } from "../../app/store/store";
-import { CommonLayout } from "../../components/CommonLayout"
+import { useDispatch } from "react-redux";
+import { CommonLayout } from "../../components/CommonLayout";
+import { logout } from "../../redux/slices/authSlice";
 
 const AdminMenu = [
   { path: '/admin', label: '🏠 Главная' },
@@ -12,14 +13,19 @@ const AdminMenu = [
 ];
 
 export const AdminLayout = () => {
-  const { logout } = useAuthStore();
+  const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const handleLogout = () => {
-    logout();
+    dispatch(logout());
     navigate('/login');
   };
+
   return (
-    <CommonLayout title="Админ-панель" menuItems={AdminMenu} onLogout={handleLogout}></CommonLayout>
-  )
-}
+    <CommonLayout
+      title="Админ-панель"
+      menuItems={AdminMenu}
+      onLogout={handleLogout}
+    />
+  );
+};

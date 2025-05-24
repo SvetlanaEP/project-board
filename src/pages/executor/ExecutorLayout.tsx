@@ -1,5 +1,6 @@
 import { useNavigate } from 'react-router-dom';
-import { useAuthStore } from '../../app/store/store';
+import { useDispatch } from 'react-redux';
+import { logout } from '../../redux/slices/authSlice';
 import { CommonLayout } from '../../components/CommonLayout';
 
 const executorMenu = [
@@ -11,11 +12,11 @@ const executorMenu = [
 
 
 export const ExecutorLayout = () => {
-  const { logout } = useAuthStore();
+  const dispatch = useDispatch()
   const navigate = useNavigate();
 
 const handleLogout = () => {
-  logout();
+  dispatch(logout())
   navigate('/login');
 };
   return (

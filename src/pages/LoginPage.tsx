@@ -1,8 +1,10 @@
 import { useState } from "react";
-import { useAuthStore } from "../app/store/store";
 import { useNavigate } from "react-router-dom";
-import styled from "styled-components";
+import { useDispatch } from "react-redux";
+import { login } from "../redux/slices/authSlice";
 import { mockUsers } from "../mock/users";
+import { AppDispatch } from "../app/store";
+import styled from "styled-components";
 
 const Wrapper = styled.div`
   display: flex;
@@ -16,8 +18,8 @@ const Wrapper = styled.div`
 export const LoginPage = () => {
   const [username, setUsername] = useState("");
   const [error, setError] = useState(false)
-  const login = useAuthStore((state) => state.login)
   const navigate = useNavigate()
+  const dispatch = useDispatch<AppDispatch>()
 
   const handleLogin = () => {
     const user = mockUsers.find((u) => u.username === username)
@@ -27,7 +29,7 @@ export const LoginPage = () => {
       return
     }
 
-    login(user)
+    dispatch(login(user))
     navigate(`/${user.role}`)
   }
 
