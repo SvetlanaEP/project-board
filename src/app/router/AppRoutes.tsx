@@ -22,7 +22,7 @@ import { ActivityPage } from "../../pages/admin/ActivityPage";
 export const AppRoutes = () => (
   <Routes>
     <Route
-      path="/login"
+      path="/"
       element={<LoginPage />}
     ></Route>
 

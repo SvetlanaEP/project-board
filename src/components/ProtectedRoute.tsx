@@ -13,7 +13,7 @@ export const ProtectedRoute = ({ children, allowedRoles }: Props) => {
   if (!role) {
     return (
       <Navigate
-        to="/login"
+        to="/"
         replace
       />
     );
