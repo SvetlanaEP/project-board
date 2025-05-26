@@ -4,6 +4,40 @@
   padding: 20px;
 }
 
+.filterWrapper {
+  margin-bottom: 1rem;
+  display: flex;
+  justify-content: flex-start;
+
+  label {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 8px;
+  }
+}
+
+.statusFilter {
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  color: #333;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: border 0.2s ease;
+
+  &:hover {
+    border-color: #888;
+  }
+
+  &:focus {
+    outline: none;
+    border-color: #007bff;
+  }
+}
+
 .card {
   border: 1px solid #ccc;
   padding: 1rem;
