@@ -2,19 +2,8 @@ import { useSelector } from 'react-redux';
 import { RootState } from '../../redux/store';
 import styles from './ProjectsList.module.scss';
 import { useState } from 'react';
+import { ProjectsCard } from '../ProjectCard/ProjectCard';
 
-const getStatusClass = (status: string) => {
-  switch (status) {
-    case 'Срочно':
-      return styles.urgent;
-    case 'В работе':
-      return styles.inProgress;
-    case 'На проверке':
-      return styles.review;
-    default:
-      return styles.waiting;
-  }
-};
 
 export const ProjectsList = () => {
   const [statusFilter, setStatusFilter] = useState('Все');
@@ -56,23 +45,7 @@ export const ProjectsList = () => {
         <p>Нет доступных проектов.</p>
       ) : (
         visibleProjects.map((project) => (
-          <div
-            key={project.id}
-            className={`${styles.card} ${getStatusClass(project.status)}`}
-          >
-            <div className={styles.cardHeader}>
-              <h3 className={styles.title}>{project.title}</h3>
-              <span className={styles.date}>
-                {new Date(project.createdAt).toLocaleDateString('ru-RU', {
-                  day: '2-digit',
-                  month: 'long',
-                  year: 'numeric',
-                })}
-              </span>
-            </div>
-            <p className={styles.description}>{project.description}</p>
-            <small className={styles.status}>Статус: {project.status}</small>
-          </div>
+          <ProjectsCard project={project}/>
         ))
       )}
     </div>
