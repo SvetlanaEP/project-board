@@ -60,9 +60,18 @@ export const ProjectsList = () => {
             key={project.id}
             className={`${styles.card} ${getStatusClass(project.status)}`}
           >
-            <h3>{project.title}</h3>
-            <p>{project.description}</p>
-            <small>Статус: {project.status}</small>
+            <div className={styles.cardHeader}>
+              <h3 className={styles.title}>{project.title}</h3>
+              <span className={styles.date}>
+                {new Date(project.createdAt).toLocaleDateString('ru-RU', {
+                  day: '2-digit',
+                  month: 'long',
+                  year: 'numeric',
+                })}
+              </span>
+            </div>
+            <p className={styles.description}>{project.description}</p>
+            <small className={styles.status}>Статус: {project.status}</small>
           </div>
         ))
       )}

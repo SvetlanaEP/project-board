@@ -62,3 +62,35 @@
     border-left-color: gray;
   }
 }
+
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #222;
+  margin: 0;
+}
+
+.date {
+  font-size: 0.9rem;
+  color: #888;
+  white-space: nowrap;
+}
+
+.description {
+  font-size: 1rem;
+  color: #444;
+  margin-bottom: 0.5rem;
+}
+
+.status {
+  font-size: 0.9rem;
+  color: #555;
+}
+
