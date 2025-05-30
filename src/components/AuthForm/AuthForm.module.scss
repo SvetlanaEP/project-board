@@ -1,0 +1,111 @@
+.form {
+  background-color: var(--color-bg-layer);
+  padding: 2rem;
+  max-width: 400px;
+  margin: 4rem auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  color: var(--color-text);
+  font-family: inherit;
+}
+
+.title {
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+  font-size: 1.75rem;
+  font-weight: 700;
+  text-align: center;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1.25rem;
+}
+
+.inputWrapper {
+  position: relative;
+  margin-bottom: 0.5rem;
+
+  input {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 1rem 0.75rem;
+    font-size: 1rem;
+    border: 1.5px solid var(--color-border);
+    border-radius: 6px;
+    background-color: var(--color-bg-layer);
+    color: var(--color-text);
+    &:focus {
+      border-color: var(--color-primary);
+      outline: none;
+    }
+
+    &:focus + label,
+    &:not(:placeholder-shown) + label {
+      transform: translate(0, -1.5rem) scale(0.85);
+      -webkit-transform: translate(0, -1.5rem) scale(0.85);
+      -moz-transform: translate(0, -1.5rem) scale(0.85);
+      -ms-transform: translate(0, -1.5rem) scale(0.85);
+      -o-transform: translate(0, -1.5rem) scale(0.85);
+      color: var(--color-primary);
+      background-color: var(--color-bg-layer);
+    }
+  }
+
+  input:-webkit-autofill {
+    box-shadow: 0 0 0px 1000px var(--color-bg-layer) inset !important;
+    -webkit-text-fill-color: var(--color-text) !important;
+    transition: background-color 5000s ease-in-out 0s;
+  }
+
+  label {
+    padding: 0 0.25rem;
+    position: absolute;
+    top: 1rem;
+    left: 0.75rem;
+    font-size: 1rem;
+    color: #888;
+    pointer-events: none;
+    transition: transform 0.2s ease, color 0.2s ease;
+    -webkit-transition: transform 0.2s ease, color 0.2s ease;
+    -moz-transition: transform 0.2s ease, color 0.2s ease;
+    -ms-transition: transform 0.2s ease, color 0.2s ease;
+    -o-transition: transform 0.2s ease, color 0.2s ease;
+    transform-origin: left top;
+    background-color: transparent;
+    
+}
+}
+
+.error {
+  margin-top: 0.3rem;
+  font-size: 0.875rem;
+  color: var(--color-primary);
+}
+
+.button {
+  width: 100%;
+  background-color: var(--color-primary);
+  color: #fff;
+  padding: 0.75rem 1rem;
+  border: none;
+  border-radius: 6px;
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+
+  &:hover {
+    opacity: 0.85;
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
+
+.link {
+  color: var(--color-primary);
+}
